@@ -1,6 +1,8 @@
 import streamlit as st
 from utils.data_handler import load_data
 from agents.profiler_agent import ProfilerAgent
+from agents.base_agent import BaseAgent
+import pandas as pd
 
 st.set_page_config(page_title="AutoData Agent Pro", layout="wide")
 st.title("🤖 AutoData Agentic Pipeline")
@@ -17,7 +19,6 @@ if uploaded_file:
         st.dataframe(df.head(), use_container_width=True)
         
         if st.button("🚀 Start Profiling"):
-            # Profiler Agent ව පාවිච්චි කරනවා
             profiler = ProfilerAgent()
             report, insights = profiler.process(df)
             
